@@ -8,7 +8,14 @@
     "start": "next start",
     "lint": "eslint --cache --ext .tsx,.ts src/",
     "lint:fix": "eslint --cache --fix --ext .tsx,.ts src/",
-    "format": "prettier --cache --write '**/*.{ts,tsx}'"
+    "format": "prettier --cache --write '**/*.{ts,tsx}'",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "npm run lint",
+      "npm run format"
+    ]
   },
   "dependencies": {
     "next": "14.1.0",
@@ -31,9 +38,15 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^9.0.10",
     "i": "^0.3.7",
+    "lint-staged": "^15.2.1",
     "npm": "^10.4.0",
     "prettier": "^3.2.4",
     "typescript": "^5"
+  },
+  "volta": {
+    "node": "20.11.0",
+    "npm": "10.2.4"
   }
 }
