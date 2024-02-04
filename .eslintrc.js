@@ -1,14 +1,14 @@
 module.exports = {
   env: {
-      "browser": true,
-      "es2021": true
+    browser: true,
+    es2021: true,
   },
   extends: [
-    "plugin:react/recommended",
+    'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    "airbnb",
-    "airbnb-typescript",
-    "airbnb/hooks",
+    'airbnb',
+    'airbnb-typescript',
+    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
@@ -18,58 +18,45 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-        jsx: true,
+      jsx: true,
     },
-    ecmaVersion: "latest",
-    sourceType: "module",
+    ecmaVersion: 'latest',
+    sourceType: 'module',
     project: ['./tsconfig.json'],
   },
-  plugins: [
-    "react",
-    '@typescript-eslint', 
-    'import', 
-    'unused-imports'
-  ],
+  plugins: ['react', '@typescript-eslint', 'import', 'unused-imports'],
   overrides: [
-      {
-        files: ['**/*.{ts,tsx}'],
-        rules: {
-          'import/order': [
-            'error',
-            {
-              groups: [
-                'builtin',
-                'external',
-                'parent',
-                'sibling',
-                'index',
-                'object',
-                'type',
-              ],
-              alphabetize: {
-                order: 'asc',
-              },
-              'newlines-between': 'always',
+    {
+      files: ['**/*.{ts,tsx}'],
+      rules: {
+        'import/order': [
+          'error',
+          {
+            groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+            alphabetize: {
+              order: 'asc',
             },
-          ],
-          'react/prop-types': 'off',
-          'no-restricted-imports': [
-            'error',
-            {
-              patterns: ['@mui/*/*/*'],
-            },
-          ],
-          '@typescript-eslint/no-misused-promises': [
-            'error',
-            {
-              checksVoidReturn: false,
-            },
-          ],
-          'react/jsx-props-no-spreading': 'off',
-          'react/require-default-props': 'off',
-          '@typescript-eslint/no-redeclare': 'off',
-        },
+            'newlines-between': 'always',
+          },
+        ],
+        'react/prop-types': 'off',
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: ['@mui/*/*/*'],
+          },
+        ],
+        '@typescript-eslint/no-misused-promises': [
+          'error',
+          {
+            checksVoidReturn: false,
+          },
+        ],
+        'react/jsx-props-no-spreading': 'off',
+        'react/require-default-props': 'off',
+        '@typescript-eslint/no-redeclare': 'off',
       },
+    },
   ],
   rules: {
     'import/prefer-default-export': 'off',
@@ -111,7 +98,7 @@ module.exports = {
     'no-use-before-define': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/jsx-one-expression-per-line': 'off',
-    "react/jsx-no-useless-fragment": 'off',
+    'react/jsx-no-useless-fragment': 'off',
   },
   settings: {
     'import/resolver': {
@@ -120,4 +107,4 @@ module.exports = {
       },
     },
   },
-}
+};
