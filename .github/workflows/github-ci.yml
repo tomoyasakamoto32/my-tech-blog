@@ -1,0 +1,23 @@
+name: run-build-and-test
+run-name: check build and test by @${{ github.actor }}
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setup-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: npm-install
+        run: npm ci
+
+      - name: app-build
+        run: npm run build
+
+      - name: app-test
+        run: npm run test
