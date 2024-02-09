@@ -1,6 +1,10 @@
+import { Box, Flex, Heading } from '@chakra-ui/react';
 import { Inter } from 'next/font/google';
 
+import { Provider } from './Providers';
+
 import type { Metadata } from 'next';
+
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -16,7 +20,18 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => (
   <html lang="en">
-    <body className={inter.className}>{children}</body>
+    <body className={inter.className}>
+      <Provider>
+        <Flex borderBottom="1px solid" borderColor="border.deep" height="60px">
+          <Box p="4" width="860px" margin="0 auto">
+            <Heading as="h1" size="md">
+              YURUMENO TECH BLOG
+            </Heading>
+          </Box>
+        </Flex>
+        {children}
+      </Provider>
+    </body>
   </html>
 );
 
