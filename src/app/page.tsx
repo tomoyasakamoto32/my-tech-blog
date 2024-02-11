@@ -1,6 +1,6 @@
 import { Box, Card, Center, Flex, Show } from '@chakra-ui/react';
 
-import { Posts } from './ui/Posts';
+import { Blogs } from './ui/Blogs';
 import { ToggleColorModeButton } from './ui/ToggleColorModeButton';
 
 const Home = () => (
@@ -13,7 +13,7 @@ const Home = () => (
       </Flex>
       <Show above="md">
         <Flex gap={3}>
-          <Posts />
+          <Blogs />
           <Box flexShrink={0}>
             <Card p={8}>プロフィール的な何か</Card>
           </Box>
@@ -21,7 +21,7 @@ const Home = () => (
       </Show>
       <Show below="md">
         <Flex gap={3} flexWrap="wrap">
-          <Posts />
+          <Blogs />
           <Box flexShrink={0}>
             <Card p={8}>プロフィール的な何か</Card>
           </Box>
