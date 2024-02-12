@@ -99,6 +99,7 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': ['error'],
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-no-useless-fragment': 'off',
+    '@typescript-eslint/return-await': 'off',
   },
   settings: {
     'import/resolver': {
