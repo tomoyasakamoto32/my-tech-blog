@@ -27,6 +27,9 @@ jobs:
         run: npm ci
 
       - name: app-build
+        env:
+          API_KEY: ${{secrets.API_KEY}}
+          MICROCMS_SERVICE_DOMAIN: ${{secrets.MICROCMS_SERVICE_DOMAIN}}
         run: npm run build
 
       - name: app-lint
