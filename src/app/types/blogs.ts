@@ -15,7 +15,7 @@ const Eyecatch = z
 
 type Eyecatch = z.infer<typeof Eyecatch>;
 
-const Blog = zObject({
+export const Blog = zObject({
   id: zString,
   createdAt: zRequireDatetime,
   updatedAt: zRequireDatetime,
