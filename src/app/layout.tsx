@@ -1,11 +1,12 @@
-import { Box, Flex, Heading } from '@chakra-ui/react';
+import './globals.css';
+import { Box, Center, Flex, Heading } from '@chakra-ui/react';
 import { Inter } from 'next/font/google';
+import Link from 'next/link';
 
 import { Provider } from './Providers';
+import { ToggleColorModeButton } from './ui/ToggleColorModeButton';
 
 import type { Metadata } from 'next';
-
-import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,12 +25,23 @@ const RootLayout = ({
       <Provider>
         <Flex borderBottom="1px solid" borderColor="border.deep" height="60px">
           <Box p="4" width="860px" margin="0 auto">
-            <Heading as="h1" size="md">
-              YURUMENO TECH BLOG
-            </Heading>
+            <Link href="/">
+              <Heading as="h1" size="md" _hover={{ opacity: 0.6, transition: '0.5s' }}>
+                ゆるめの TECH BLOG
+              </Heading>
+            </Link>
           </Box>
         </Flex>
-        {children}
+        <main>
+          <Box maxWidth="1024px" margin="0 auto" p={4}>
+            <Flex justifyContent="right" mt={2}>
+              <Center>
+                <ToggleColorModeButton />
+              </Center>
+            </Flex>
+            {children}
+          </Box>
+        </main>
       </Provider>
     </body>
   </html>

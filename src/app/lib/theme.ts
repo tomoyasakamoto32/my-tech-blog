@@ -5,6 +5,7 @@ const theme = extendTheme({
     color: {
       main: '#1a202c',
       secoundary: '#999',
+      link: '#2c91ec',
     },
     border: {
       main: '#E3E8E8',
