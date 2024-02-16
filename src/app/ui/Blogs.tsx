@@ -27,8 +27,8 @@ export const Blogs = async () => {
                 overflow: 'hidden',
                 display: '-webkit-box',
                 textOverflow: 'ellipsis',
-                '-webkit-box-orient': 'vertical',
-                '-webkit-line-clamp': '3',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: '3',
               }}
             >
               {blog.summary}

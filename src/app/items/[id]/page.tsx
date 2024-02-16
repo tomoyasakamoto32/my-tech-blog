@@ -1,11 +1,14 @@
 import { Box, Flex, Heading, Show, Tag, Text, VStack } from '@chakra-ui/react';
-import { parse } from 'node-html-parser';
+import * as cheerio from 'cheerio';
+import hljs from 'highlight.js';
 
 import styles from './page.module.css';
 
 import { getBlog } from '@/app/lib/apis/getBlog';
 import { Blog } from '@/app/types/blogs';
 import TableOfContents from '@/app/ui/TableOfContents';
+
+import 'highlight.js/styles/hybrid.css';
 
 type PlainBlogDetailProps = {
   blog: Blog;
@@ -68,19 +71,27 @@ const PlainBlogDetailMobile = ({ blog, headings }: PlainBlogDetailProps) => (
 
 const BlogDetail = async ({ params }: { params: { id: string } }) => {
   const blog = await getBlog(params.id);
-  const persed = parse(blog.content ?? '');
-  const headings = persed.querySelectorAll('h2, h3').map((heading) => ({
-    tagName: heading.tagName,
-    id: heading.id,
-    text: heading.firstChild?.innerText,
+  const $ = cheerio.load(blog.content ?? '');
+  const headings = $('h2, h3').toArray();
+  const toc = headings.map((data) => ({
+    text: $(data.children[0]).text(),
+    id: data.attribs.id,
+    tagName: data.name,
   }));
+
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
+
   return (
     <>
       <Show below="md">
-        <PlainBlogDetailMobile blog={blog} headings={headings} />
+        <PlainBlogDetailMobile blog={{ ...blog, content: $.html() }} headings={toc} />
       </Show>
       <Show above="md">
-        <PlainBlogDetail blog={blog} headings={headings} />
+        <PlainBlogDetail blog={{ ...blog, content: $.html() }} headings={toc} />
       </Show>
     </>
   );

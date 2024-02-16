@@ -20,12 +20,12 @@ const PlainTableOfContents = ({ headings }: PlainTableOfContentsProps) => (
       </Heading>
       {headings.map((heading) => (
         <Link href={`#${heading.id}`}>
-          {heading.tagName === 'H2' && (
+          {heading.tagName === 'h2' && (
             <Heading as="p" size="xs" color="color.link">
               {heading.text}
             </Heading>
           )}
-          {heading.tagName === 'H3' && (
+          {heading.tagName === 'h3' && (
             <Flex gap={1}>
               <Heading as="p" size="xs" color="color.link" ml={3}>
                 -
@@ -49,12 +49,12 @@ const PlainTableOfContentsMobile = ({ headings }: PlainTableOfContentsProps) => 
       </Heading>
       {headings.map((heading) => (
         <Link href={`#${heading.id}`} key={heading.id}>
-          {heading.tagName === 'H2' && (
+          {heading.tagName === 'h2' && (
             <Heading as="p" size="md" color="color.link">
               {heading.text}
             </Heading>
           )}
-          {heading.tagName === 'H3' && (
+          {heading.tagName === 'h3' && (
             <Flex gap={1}>
               <Heading as="p" size="xs" color="color.link" ml={3}>
                 -
