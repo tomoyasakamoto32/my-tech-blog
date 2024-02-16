@@ -32,3 +32,39 @@
   max-width: 100%;
   height: auto;
 }
+
+.content pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.content table {
+  border-radius: 12px 12px 0 0;
+}
+
+.content th {
+  padding: 16px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  background-color: #f8f9fd;
+  border: 1px solid #ccccd9;
+  max-width: 246px;
+  word-break: break-all;
+}
+
+.content td {
+  padding: 16px;
+  border-bottom: 1px solid rgba(224, 224, 224, 1);
+  border: 1px solid #ccccd9;
+  max-width: 246px;
+  word-break: break-all;
+}
+
+.content table {
+  margin: 40px 0;
+}
+
+.content blockquote {
+  border-left: 2px solid #ccccd9;
+  padding: 16px 0 16px 24px;
+  margin: 40px 0;
+}
