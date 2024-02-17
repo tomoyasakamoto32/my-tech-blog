@@ -1,6 +1,7 @@
-import { Box, Card, Flex, Show } from '@chakra-ui/react';
+import { Box, Flex, Show } from '@chakra-ui/react';
 
 import { Blogs } from './ui/Blogs';
+import Profile from './ui/Profile';
 
 const Home = () => (
   <>
@@ -8,15 +9,15 @@ const Home = () => (
       <Flex gap={3}>
         <Blogs />
         <Box flexShrink={0}>
-          <Card p={8}>プロフィール的な何か</Card>
+          <Profile />
         </Box>
       </Flex>
     </Show>
     <Show below="md">
-      <Flex gap={3} flexWrap="wrap">
+      <Flex flexWrap="wrap" justifyContent="center">
         <Blogs />
-        <Box flexShrink={0}>
-          <Card p={8}>プロフィール的な何か</Card>
+        <Box mt={16}>
+          <Profile />
         </Box>
       </Flex>
     </Show>
