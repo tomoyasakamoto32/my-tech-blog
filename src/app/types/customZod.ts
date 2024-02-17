@@ -4,15 +4,23 @@ import { isValidDate } from '../utils/dateUtils';
 
 const invalidTypeError = '値が不正です';
 const invalidTypeOptions = { invalid_type_error: invalidTypeError };
+const inValidURLError = '不正なURLです';
 
 export const requiredOptions = { required_error: '必須です' };
 
 // string
 export const zString = z.string();
+export const zRequireString = z.string().min(1);
 export const zNullableString = z.string().nullish();
+export const zURL = z
+  .string()
+  .regex(/^(https?:\/\/)([a-zA-Z0-9.-]+)(\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/, inValidURLError)
+  .nullish()
+  .or(z.literal(''));
 
 // number
 export const zNumber = z.number();
+export const zNullableNUmber = z.number().nullish();
 
 // date
 export const zDatetime = z

@@ -13,7 +13,7 @@ export const Blogs = async () => {
             <Heading as="h2" size="md" _groupHover={{ opacity: 0.6, transition: '0.5s' }}>
               {blog.title ?? ''}
             </Heading>
-            <Flex gap={8}>
+            <Flex gap={4}>
               <Text size="sm" color="color.secoundary">
                 {blog.formattedPublishedAt} 公開
               </Text>
