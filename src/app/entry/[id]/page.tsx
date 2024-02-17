@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Show, Tag, Text, VStack } from '@chakra-ui/react';
 import * as cheerio from 'cheerio';
 import hljs from 'highlight.js';
+import { Metadata, ResolvingMetadata } from 'next';
 
 import styles from './page.module.css';
 
@@ -18,6 +19,30 @@ type PlainBlogDetailProps = {
     text: string | undefined;
   }[];
 };
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const blog = await getBlog(params.id);
+  const previousImages = (await parent).openGraph?.images || [];
+  const description = `${blog.metaDescription}…`;
+
+  return {
+    title: blog.title,
+    description,
+    twitter: {
+      description,
+      images: [...previousImages],
+    },
+    openGraph: {
+      images: [...previousImages],
+      description,
+    },
+  };
+}
 
 const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
   <Flex gap={3} alignItems="flex-start">
