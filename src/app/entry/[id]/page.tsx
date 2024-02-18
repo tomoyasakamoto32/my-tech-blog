@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   const description = `${blog.metaDescription}…`;
 
   return {
+    metadataBase: new URL('https://my-tech-blog-58hml7f8z-tomoyasakamoto32.vercel.app'),
     title: blog.title,
     description,
     twitter: {

@@ -12,7 +12,7 @@
 .content > h3 {
   font-size: 1.6rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 3rem 0 1.2rem 0;
 }
 
 .content > h4 {
@@ -43,7 +43,6 @@
 }
 
 .content th {
-  padding: 16px;
   border-bottom: 1px solid rgba(224, 224, 224, 1);
   background-color: #f8f9fd;
   border: 1px solid #ccccd9;
@@ -67,4 +66,9 @@
   border-left: 2px solid #ccccd9;
   padding: 16px 0 16px 24px;
   margin: 40px 0;
+}
+
+.content p {
+  line-height: 1.8rem;
+  margin: 1rem 0;
 }
