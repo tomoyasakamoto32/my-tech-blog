@@ -4,7 +4,7 @@ const theme = extendTheme({
   colors: {
     color: {
       main: '#1a202c',
-      secoundary: '#999',
+      secoundary: '#686363',
       link: '#2c91ec',
     },
     border: {

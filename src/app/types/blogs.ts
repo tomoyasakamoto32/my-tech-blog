@@ -26,6 +26,7 @@ export const Blog = zObject({
   eyecatch: Eyecatch,
   categories: zArray(Category).nullish(),
   summary: zNullableString,
+  metaDescription: zString,
 }).transform((args) => ({
   ...args,
   formattedCreatedAt: dateFormat(args.createdAt, 'yyyy年MM月dd日'),
