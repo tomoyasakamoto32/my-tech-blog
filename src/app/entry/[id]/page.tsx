@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 import hljs from 'highlight.js';
 import { Metadata, ResolvingMetadata } from 'next';
 
-import styles from './page.module.css';
+// import styles from './page.module.css';
 
 import { getBlog } from '@/app/lib/apis/getBlog';
 import { Blog } from '@/app/types/blogs';
@@ -63,7 +63,7 @@ const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
           </Text>
         </Flex>
       </VStack>
-      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
+      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} />
     </VStack>
     <TableOfContents headings={headings} />
   </Flex>
@@ -89,7 +89,7 @@ const PlainBlogDetailMobile = ({ blog, headings }: PlainBlogDetailProps) => (
         </Flex>
       </VStack>
       <TableOfContents headings={headings} isMobile />
-      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
+      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} />
     </VStack>
   </Flex>
 );
