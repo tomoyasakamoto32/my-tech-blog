@@ -10,7 +10,7 @@ import { getBlog } from '@/app/lib/apis/getBlog';
 import { Blog } from '@/app/types/blogs';
 import TableOfContents from '@/app/ui/TableOfContents';
 
-import 'highlight.js/styles/github.css';
+import 'highlight.js/styles/hybrid.css';
 
 hljs.registerLanguage('typescript', typescript);
 
