@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Show, Tag, Text, VStack } from '@chakra-ui/react';
 import * as cheerio from 'cheerio';
-import hljs from 'highlight.js';
+// import hljs from 'highlight.js';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import styles from './page.module.css';
@@ -104,11 +104,11 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
     tagName: data.name,
   }));
 
-  $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text());
-    $(elm).html(result.value);
-    $(elm).addClass('hljs');
-  });
+  // $('pre code').each((_, elm) => {
+  //   const result = hljs.highlightAuto($(elm).text());
+  //   $(elm).html(result.value);
+  //   $(elm).addClass('hljs');
+  // });
 
   return (
     <>
