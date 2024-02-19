@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Show, Tag, Text, VStack } from '@chakra-ui/react';
 import * as cheerio from 'cheerio';
-// import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
+import typescript from 'highlight.js/lib/languages/typescript';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import styles from './page.module.css';
@@ -9,7 +10,9 @@ import { getBlog } from '@/app/lib/apis/getBlog';
 import { Blog } from '@/app/types/blogs';
 import TableOfContents from '@/app/ui/TableOfContents';
 
-import 'highlight.js/styles/hybrid.css';
+import 'highlight.js/styles/github.css';
+
+hljs.registerLanguage('typescript', typescript);
 
 type PlainBlogDetailProps = {
   blog: Blog;
@@ -104,11 +107,11 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
     tagName: data.name,
   }));
 
-  // $('pre code').each((_, elm) => {
-  //   const result = hljs.highlightAuto($(elm).text());
-  //   $(elm).html(result.value);
-  //   $(elm).addClass('hljs');
-  // });
+  $('pre code').each((_, elm) => {
+    const result = hljs.highlight($(elm).text(), { language: 'typescript' });
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
+  });
 
   return (
     <>
