@@ -69,6 +69,16 @@ a {
   text-decoration: none;
 }
 
+.code-highlight {
+  background-color: #edf2f7;
+  padding: 4px;
+}
+
+.chakra-ui-dark .code-highlight {
+  background-color: rgba(226, 232, 240, 0.16);
+  padding: 4px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
