@@ -10,7 +10,8 @@
     "lint:fix": "eslint --cache --fix --ext .tsx,.ts src/",
     "format": "prettier --cache --write '**/*.{ts,tsx}'",
     "prepare": "husky",
-    "test": "jest"
+    "test": "jest",
+    "analyze": "ANALYZE=true next build"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
@@ -36,6 +37,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.1.0",
     "@testing-library/jest-dom": "^6.4.1",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",

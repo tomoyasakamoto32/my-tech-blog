@@ -1,7 +1,8 @@
 import { Box, Flex, Show } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
-import { Blogs } from './ui/Blogs';
-import Profile from './ui/Profile';
+const Blogs = dynamic(() => import('./ui/Blogs'));
+const Profile = dynamic(() => import('./ui/Profile'));
 
 const Home = () => (
   <>
