@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   };
 }
 
+// コンテンツのダウンロードに時間がかかり過ぎているのでchakra-uiを剥がした
 const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
   <div className={styles['p-content-detail']}>
     <div className={styles['p-content-detail__article']}>
