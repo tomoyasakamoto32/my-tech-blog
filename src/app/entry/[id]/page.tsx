@@ -1,4 +1,3 @@
-import { Box, Flex, Heading, Show, Tag, Text, VStack } from '@chakra-ui/react';
 import * as cheerio from 'cheerio';
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
@@ -50,53 +49,31 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 }
 
 const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
-  <Flex gap={3} alignItems="flex-start">
-    <VStack alignItems="flex-start" spacing={16} mb={16}>
-      <VStack alignItems="flex-start" spacing={4}>
-        <Heading as="h1" size="lg">
-          {blog.title}
-        </Heading>
-        <Flex gap={2} flexWrap="wrap">
-          {blog.categories?.map((category) => <Tag key={category?.id}>{category?.name}</Tag>)}
-        </Flex>
-        <Flex gap={8}>
-          <Text size="sm" color="color.secoundary">
-            {blog.formattedPublishedAt} 公開
-          </Text>
-          <Text size="sm" color="color.secoundary">
-            {blog.formattedUpdatedAt} 更新
-          </Text>
-        </Flex>
-      </VStack>
-      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
-    </VStack>
-    <TableOfContents headings={headings} />
-  </Flex>
-);
-
-const PlainBlogDetailMobile = ({ blog, headings }: PlainBlogDetailProps) => (
-  <Flex gap={3} alignItems="flex-start">
-    <VStack alignItems="center" spacing={16} mb={16}>
-      <VStack alignItems="flex-start" spacing={4}>
-        <Heading as="h1" size="lg">
-          {blog.title}
-        </Heading>
-        <Flex gap={2} flexWrap="wrap">
-          {blog.categories?.map((category) => <Tag key={category?.id}>{category?.name}</Tag>)}
-        </Flex>
-        <Flex gap={4} flexWrap="wrap">
-          <Text size="sm" color="color.secoundary">
-            {blog.formattedPublishedAt} 公開
-          </Text>
-          <Text size="sm" color="color.secoundary">
-            {blog.formattedUpdatedAt} 更新
-          </Text>
-        </Flex>
-      </VStack>
-      <TableOfContents headings={headings} isMobile />
-      <Box width="100%" dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
-    </VStack>
-  </Flex>
+  <div className={styles['p-content-detail']}>
+    <div className={styles['p-content-detail__article']}>
+      <div className={styles['p-content-detail__article-title-wrapper']}>
+        <h1 className={styles['p-content-detail__article-title']}>{blog.title}</h1>
+        <div className={styles['p-content-detail__article-tag-list']}>
+          {blog.categories?.map((category) => (
+            <span key={category?.id} className={styles['p-content-detail__article-tag']}>
+              {category?.name}
+            </span>
+          ))}
+        </div>
+        <div className={styles['p-content-detail__article-date-wrapper']}>
+          <p className={styles['p-content-detail__article-date']}>{blog.formattedPublishedAt} 公開</p>
+          <p className={styles['p-content-detail__article-date']}>{blog.formattedUpdatedAt} 更新</p>
+        </div>
+      </div>
+      <div className={styles['p-content-detail__toc-mobile']}>
+        <TableOfContents headings={headings} isMobile />
+      </div>
+      <div dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
+    </div>
+    <div className={styles['p-content-detail__toc']}>
+      <TableOfContents headings={headings} />
+    </div>
+  </div>
 );
 
 const BlogDetail = async ({ params }: { params: { id: string } }) => {
@@ -122,16 +99,7 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
     }
   });
 
-  return (
-    <>
-      <Show below="md">
-        <PlainBlogDetailMobile blog={{ ...blog, content: $.html() }} headings={toc} />
-      </Show>
-      <Show above="md">
-        <PlainBlogDetail blog={{ ...blog, content: $.html() }} headings={toc} />
-      </Show>
-    </>
-  );
+  return <PlainBlogDetail blog={{ ...blog, content: $.html() }} headings={toc} />;
 };
 
 export default BlogDetail;
