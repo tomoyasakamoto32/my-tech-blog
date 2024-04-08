@@ -19,7 +19,7 @@ const PlainTableOfContents = ({ headings }: PlainTableOfContentsProps) => (
         目次
       </Heading>
       {headings.map((heading) => (
-        <Link href={`#${heading.id}`}>
+        <Link href={`#${heading.id}`} key={heading.id}>
           {heading.tagName === 'h2' && (
             <Heading as="p" size="xs" color="color.link">
               {heading.text}
