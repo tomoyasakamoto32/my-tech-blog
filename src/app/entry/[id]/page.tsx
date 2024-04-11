@@ -69,6 +69,7 @@ const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
       <div className={styles['p-content-detail__toc-mobile']}>
         <TableOfContents headings={headings} isMobile />
       </div>
+      {/* eslint-disable-next-line react/no-danger */}
       <div dangerouslySetInnerHTML={{ __html: blog.content ?? '' }} className={styles.content} />
     </div>
     <div className={styles['p-content-detail__toc']}>
