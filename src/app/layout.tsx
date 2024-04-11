@@ -1,6 +1,7 @@
 import './globals.css';
 import { Box, Center, Flex, Heading, VStack } from '@chakra-ui/react';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
@@ -62,6 +63,7 @@ const RootLayout = ({
           <Box>©︎ {new Date().getFullYear()}</Box>
         </VStack>
       </Provider>
+      <SpeedInsights />
     </body>
     <GoogleAnalytics gaId={GA_ID} />
   </html>
