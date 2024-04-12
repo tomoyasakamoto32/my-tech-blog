@@ -8,7 +8,7 @@ export const Blogs = async () => {
   return (
     <VStack divider={<StackDivider borderColor="border.main" />} spacing={4} align="stretch">
       {data.contents.map((blog) => (
-        <Link href={`/entry/${blog.id}`} key={blog.id}>
+        <Link href={`/entry/${blog.id}`} key={blog.id} prefetch>
           <VStack align="stretch" role="group">
             <Heading as="h2" size="md" _groupHover={{ opacity: 0.6, transition: '0.5s' }}>
               {blog.title ?? ''}
@@ -23,7 +23,7 @@ export const Blogs = async () => {
             </Flex>
             <Text size="sm">{blog.summary}...</Text>
             <Flex gap={2} flexWrap="wrap">
-              {blog.categories?.map((category) => <Tag>{category?.name}</Tag>)}
+              {blog.categories?.map((category) => <Tag key={category?.id}>{category?.name}</Tag>)}
             </Flex>
           </VStack>
         </Link>
