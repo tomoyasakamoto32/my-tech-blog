@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   const description = `${blog.metaDescription}…`;
 
   return {
+    metadataBase: new URL('http://localhost:3000'),
     title: blog.title,
     description,
     twitter: {
