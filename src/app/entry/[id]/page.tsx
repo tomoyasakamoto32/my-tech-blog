@@ -2,11 +2,11 @@
 import hljs from 'highlight.js/lib/core';
 import css from 'highlight.js/lib/languages/css';
 import typescript from 'highlight.js/lib/languages/typescript';
-import { Metadata, ResolvingMetadata } from 'next';
+// import { Metadata, ResolvingMetadata } from 'next';
 
 // import styles from './page.module.css';
 
-import { getBlog } from '@/app/lib/apis/getBlog';
+// import { getBlog } from '@/app/lib/apis/getBlog';
 // import { Blog } from '@/app/types/blogs';
 // import TableOfContents from '@/app/ui/TableOfContents';
 
@@ -24,29 +24,29 @@ hljs.registerLanguage('css', css);
 //   }[];
 // };
 
-type Props = {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+// type Props = {
+//   params: { id: string };
+//   searchParams: { [key: string]: string | string[] | undefined };
+// };
 
-export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
-  const blog = await getBlog(params.id);
-  const previousImages = (await parent).openGraph?.images || [];
-  const description = `${blog.metaDescription}…`;
+// export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
+//   const blog = await getBlog(params.id);
+//   const previousImages = (await parent).openGraph?.images || [];
+//   const description = `${blog.metaDescription}…`;
 
-  return {
-    title: blog.title,
-    description,
-    twitter: {
-      description,
-      images: [...previousImages],
-    },
-    openGraph: {
-      images: [...previousImages],
-      description,
-    },
-  };
-}
+//   return {
+//     title: blog.title,
+//     description,
+//     twitter: {
+//       description,
+//       images: [...previousImages],
+//     },
+//     openGraph: {
+//       images: [...previousImages],
+//       description,
+//     },
+//   };
+// }
 
 // コンテンツのダウンロードに時間がかかり過ぎているのでchakra-uiを剥がした
 // const PlainBlogDetail = ({ blog, headings }: PlainBlogDetailProps) => (
