@@ -23,7 +23,7 @@ export const Blogs = async () => {
             </Flex>
             <Text size="sm">{blog.summary}...</Text>
             <Flex gap={2} flexWrap="wrap">
-              {blog.categories?.map((category) => <Tag>{category?.name}</Tag>)}
+              {blog.categories?.map((category) => <Tag key={category?.id}>{category?.name}</Tag>)}
             </Flex>
           </VStack>
         </Link>

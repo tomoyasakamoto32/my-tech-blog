@@ -89,16 +89,10 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
   }));
 
   $('pre code').each((_, elm) => {
-    const lang = $(elm).attr('class')?.split('-')[1];
-    try {
-      const result = hljs.highlight($(elm).text(), { language: lang ?? 'typescript' });
-      $(elm).html(result.value);
-      $(elm).addClass('hljs');
-    } catch {
-      const result = hljs.highlight($(elm).text(), { language: 'typescript' });
-      $(elm).html(result.value);
-      $(elm).addClass('hljs');
-    }
+    // const lang = $(elm).attr('class')?.split('-')[1];
+    const result = hljs.highlight($(elm).text(), { language: 'typescript' });
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
   });
 
   return <PlainBlogDetail blog={{ ...blog, content: $.html() }} headings={toc} />;
