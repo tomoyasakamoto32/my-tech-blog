@@ -1,7 +1,7 @@
 // import * as cheerio from 'cheerio';
-import hljs from 'highlight.js/lib/core';
-import css from 'highlight.js/lib/languages/css';
-import typescript from 'highlight.js/lib/languages/typescript';
+// import hljs from 'highlight.js/lib/core';
+// import css from 'highlight.js/lib/languages/css';
+// import typescript from 'highlight.js/lib/languages/typescript';
 // import { Metadata, ResolvingMetadata } from 'next';
 
 // import styles from './page.module.css';
@@ -10,10 +10,10 @@ import typescript from 'highlight.js/lib/languages/typescript';
 // import { Blog } from '@/app/types/blogs';
 // import TableOfContents from '@/app/ui/TableOfContents';
 
-import 'highlight.js/styles/hybrid.css';
+// import 'highlight.js/styles/hybrid.css';
 
-hljs.registerLanguage('typescript', typescript);
-hljs.registerLanguage('css', css);
+// hljs.registerLanguage('typescript', typescript);
+// hljs.registerLanguage('css', css);
 
 // type PlainBlogDetailProps = {
 //   blog: Blog;
