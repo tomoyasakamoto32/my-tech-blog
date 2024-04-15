@@ -7,6 +7,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 import styles from './page.module.css';
 
 import { getBlog } from '@/app/lib/apis/getBlog';
+import { getBlogs } from '@/app/lib/apis/getBlogs';
 import { Blog } from '@/app/types/blogs';
 import TableOfContents from '@/app/ui/TableOfContents';
 
@@ -106,3 +107,10 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
 };
 
 export default BlogDetail;
+
+export const generateStaticParams = async () => {
+  const blogs = await getBlogs();
+  return blogs.contents.map((blog) => ({
+    id: blog.id,
+  }));
+};
