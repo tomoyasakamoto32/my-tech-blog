@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getBlogs } from '../lib/apis/getBlogs';
 
-export const Blogs = async () => {
+const Blogs = async () => {
   const data = await getBlogs();
   return (
     <VStack divider={<StackDivider borderColor="border.main" />} spacing={4} align="stretch">
@@ -31,3 +31,5 @@ export const Blogs = async () => {
     </VStack>
   );
 };
+
+export default Blogs;

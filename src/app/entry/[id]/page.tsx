@@ -12,6 +12,8 @@ import TableOfContents from '@/app/ui/TableOfContents';
 
 import 'highlight.js/styles/hybrid.css';
 
+const useLangs = ['typescript', 'css'];
+
 hljs.registerLanguage('typescript', typescript);
 hljs.registerLanguage('css', css);
 
@@ -90,12 +92,12 @@ const BlogDetail = async ({ params }: { params: { id: string } }) => {
   }));
 
   $('pre code').each((_, elm) => {
-    const lang = $(elm).attr('class')?.split('-')[1];
-    try {
-      const result = hljs.highlight($(elm).text(), { language: lang ?? 'typescript' });
+    const lang = $(elm).attr('class')?.split('-')[1] ?? useLangs[0];
+    if (useLangs.includes(lang)) {
+      const result = hljs.highlight($(elm).text(), { language: lang });
       $(elm).html(result.value);
       $(elm).addClass('hljs');
-    } catch {
+    } else {
       const result = hljs.highlight($(elm).text(), { language: 'typescript' });
       $(elm).html(result.value);
       $(elm).addClass('hljs');
