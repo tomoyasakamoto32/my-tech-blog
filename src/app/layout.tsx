@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://saka-techblog.com/'),
   title: 'ゆるめのテックブログ',
   description: 'sakamotoによるゆるめの技術ブログです。気ままに更新します。',
 };

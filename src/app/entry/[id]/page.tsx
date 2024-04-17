@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
   const description = `${blog.metaDescription}…`;
 
   return {
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL('https://saka-techblog.com/'),
     title: blog.title,
     description,
     twitter: {
@@ -110,6 +110,7 @@ export default BlogDetail;
 
 export const generateStaticParams = async () => {
   const blogs = await getBlogs();
+  console.log('bbbbb');
   return blogs.contents.map((blog) => ({
     id: blog.id,
   }));
