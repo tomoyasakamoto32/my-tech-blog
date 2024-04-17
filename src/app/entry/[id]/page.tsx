@@ -110,7 +110,6 @@ export default BlogDetail;
 
 export const generateStaticParams = async () => {
   const blogs = await getBlogs();
-  console.log('bbbbb');
   return blogs.contents.map((blog) => ({
     id: blog.id,
   }));
