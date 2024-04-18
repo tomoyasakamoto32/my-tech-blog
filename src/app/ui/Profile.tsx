@@ -1,4 +1,5 @@
 import { Card, VStack, Heading, Box } from '@chakra-ui/react';
+import Image from 'next/image';
 
 import { getProfile } from '../lib/apis/getProfile';
 import { getAgeFromDate } from '../utils/dateUtils';
@@ -12,7 +13,7 @@ const Profile = async () => {
           {profile?.displayName}
         </Heading>
         <Box borderRadius="50%" width="80px" height="80px">
-          <img
+          <Image
             src="/blog_profile_img.png"
             alt="ブログ管理者のペットのトイプードルの写真。超可愛い"
             width={2048}
