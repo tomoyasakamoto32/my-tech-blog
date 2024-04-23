@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { Provider } from './Providers';
 import ClickableTextLink from './ui/ClickableTextLink';
 import { ToggleColorModeButton } from './ui/ToggleColorModeButton';
+import RssIcon from './ui/icons/RssIcon';
 
 import type { Metadata } from 'next';
 
@@ -40,7 +41,12 @@ const RootLayout = ({
         </Flex>
         <main>
           <Box maxWidth="1024px" margin="0 auto" p={4} minHeight="calc(100vh - 190px)">
-            <Flex justifyContent="right" mt={2}>
+            <Flex justifyContent="right" mt={2} gap={4} mb={10}>
+              <Center>
+                <Link href="/rss/feed.xml">
+                  <RssIcon />
+                </Link>
+              </Center>
               <Center>
                 <ToggleColorModeButton />
               </Center>
