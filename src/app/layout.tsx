@@ -34,7 +34,7 @@ const RootLayout = ({
           <Box p="4" width="860px" margin="0 auto">
             <Link href="/">
               <Heading as="h1" size="md" _hover={{ opacity: 0.6, transition: '0.5s' }}>
-                ゆるめの TECH BLOG
+                TECH BLOG
               </Heading>
             </Link>
           </Box>
