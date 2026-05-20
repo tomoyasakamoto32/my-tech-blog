@@ -9,7 +9,7 @@ const Home = async () => {
   return (
     <>
       <Show above="sm">
-        <Flex gap={2}>
+        <Flex gap={3}>
           <Blogs />
           <Box flexShrink={0}>
             <Profile />
