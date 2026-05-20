@@ -8,7 +8,7 @@ const Home = async () => {
   await generateRssFeed();
   return (
     <>
-      <Show above="md">
+      <Show above="sm">
         <Flex gap={3}>
           <Blogs />
           <Box flexShrink={0}>
